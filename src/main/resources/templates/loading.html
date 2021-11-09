@@ -23,12 +23,20 @@
 
 <div class="container">
     <form method="POST" action="/loading" enctype="multipart/form-data">
+        <p class="text-secondary">choose the category</p>
+        <select class="form-select mb-4" aria-label="Default select example" name="category">
+            <option value="BEAUTY">Beauty</option>
+            <option value="CULTURE">Culture</option>
+            <option value="FASHION">Fashion</option>
+            <option value="LIFE_LOVE">Life_Love</option>
+            <option value="OTHER" selected>Other</option>
+        </select>
         <div class="mb-3">
             <input class="form-control" type="file" name="file" id="inputFile" onchange="checkFileExtension()">
-            <label class="form-label" for="inputFile" title="* the file should have zip extension
+            <label class="form-label text-secondary" for="inputFile" title="* the file should have zip extension
 * the file should contain only one text file ('article.txt' file)
 * the first line will be the title of the article
-* the first paragraph will be the description of the article">the file with your article</label>
+* the first paragraph will be the description of the article">?</label>
         </div>
         <button type="submit" class="btn btn-secondary" id="buttonLoad" disabled>Load</button>
     </form>

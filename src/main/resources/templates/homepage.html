@@ -25,13 +25,17 @@
 
 <div class="container mb-4">
     <h2>Trending</h2>
+    <hr>
 </div>
 
 <div th:each="article:${articles}">
     <div class="container mb-4">
+        <p class="text-secondary"
+           th:text="${article.category + ' - ' + @formatterUtils.getNiceDate(article.createdTimestamp)}"></p>
         <h3 th:text="${article.title}"></h3>
         <p th:text="${article.description}"></p>
         <a class="link-info" href="#" title="sorry, now you can not read the full content .. =(">more ..</a>
+        <hr>
     </div>
 </div>
 

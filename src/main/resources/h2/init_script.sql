@@ -8,15 +8,16 @@ create table article
     title             varchar(80),
     description       varchar(200),
     content           varchar(2000),
+    category          varchar(20),
     created_timestamp timestamp
 );
 
-insert into article (title, description, content, created_timestamp)
+insert into article (title, description, content, category, created_timestamp)
 values ('Your most unhappy customers are your greatest source of learning.',
         'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
-        'test', current_timestamp);
+        'test', 'OTHER', current_timestamp);
 
-insert into article (title, description, content, created_timestamp)
+insert into article (title, description, content, category, created_timestamp)
 values ('Your most unhappy customers are your greatest source of learning.',
         'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
-        'test', current_timestamp);
+        'test', 'OTHER', current_timestamp);

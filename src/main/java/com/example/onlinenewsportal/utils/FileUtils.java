@@ -1,6 +1,7 @@
 package com.example.onlinenewsportal.utils;
 
 import com.example.onlinenewsportal.entity.Article;
+import com.example.onlinenewsportal.entity.Category;
 import com.example.onlinenewsportal.exception.InputFileHandlingException;
 import org.apache.commons.io.IOUtils;
 
@@ -43,14 +44,14 @@ public class FileUtils {
         return result;
     }
 
-    public static Article getArticleFromContent(String content) {
+    public static Article getArticleFromContent(String content, String category) {
         String[] split = content.split(System.lineSeparator());
         if (split.length < 2) {
             throw new InputFileHandlingException(INCORRECT_TXT_CONTENT_MESSAGE);
         }
         // all without the first line is article's content
         String replace = content.replace(split[0] + System.lineSeparator(), "");
-        return new Article(split[0], split[1], replace, new Date());
+        return new Article(split[0], split[1], replace, Category.valueOf(category), new Date());
     }
 
     private static ZipFile getZipFile(InputStream inputStream) throws IOException {

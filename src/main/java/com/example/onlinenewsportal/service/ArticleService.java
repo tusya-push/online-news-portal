@@ -25,11 +25,11 @@ public class ArticleService {
         return articleRepository.findAll(Sort.by(Sort.Direction.DESC, "createdTimestamp"));
     }
 
-    public String loadNewArticle(MultipartFile file) {
+    public String loadNewArticle(MultipartFile file, String category) {
         String message;
         try {
             String content = getContentFromFile(file.getInputStream());
-            Article article = getArticleFromContent(content);
+            Article article = getArticleFromContent(content, category);
             articleRepository.save(article);
             message = "it's ok !!!";
         } catch (InputFileHandlingException | IOException ex) {
