@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online News Portal :: Home Page</title>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="dark">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>-->
+    <link href="/css/onlinenewsportal.css" rel="stylesheet">
+</head>
+<body onload="handleSwitching()">
+
+<nav class="navbar">
+    <div class="container">
+        <p class="navbar-text">Welcome to our online news portal</p>
+        <div>
+            <a class="nav-link" href="/loading">load your article</a>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeCheckbox">
+                <label class="form-check-label" for="darkModeCheckbox">light / dark</label>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mb-4">
+    <h2>Trending</h2>
+</div>
+
+<div th:each="article:${articles}">
+    <div class="container mb-4">
+        <h3 th:text="${article.title}"></h3>
+        <p th:text="${article.description}"></p>
+        <a class="link-info" href="#" title="sorry, now you can not read the full content .. =(">more ..</a>
+    </div>
+</div>
+
+<script src="/js/onlinenewsportal.js"></script>
+
+</body>
+</html>
